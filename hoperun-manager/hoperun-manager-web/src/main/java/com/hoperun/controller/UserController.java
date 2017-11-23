@@ -15,6 +15,10 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	private String projectName = "DevOPS";
+	private String Author = "tugang";
+	private String e_mail = "15994738101@163.com";
+	
 	@RequestMapping("/userList")
 	public String getUserList(Model model){
 		List<User> list = userService.getUserList();
@@ -24,9 +28,14 @@ public class UserController {
 		return "list";
 	}
 	
+	/*
+	 * 页面跳转
+	 */
 	@RequestMapping("/test")
 	@ResponseBody
 	public String test(){
+		String info = givemefive();
+		System.out.println(info);
 		
 		return "success";
 	}
@@ -38,4 +47,11 @@ public class UserController {
 		return "success";
 //		return "redirect:/userList";
 	}
+	
+	public String givemefive (){
+		String info = projectName.concat("-").concat(Author).concat("-").concat(e_mail);
+		
+		return info;
+	}
+	
 }
