@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>TG</groupId>
+		<artifactId>hoperun-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>hoperun-manager</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>hoperun-manager-dao</module>
+		<module>hoperun-manager-interface</module>
+		<module>hoperun-manager-service</module>
+		<module>hoperun-manager-pojo</module>
+		<module>hoperun-manager-web</module>
+	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>TG</groupId>
+			<artifactId>hoperun-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- 配置Tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<path>/hoperun</path>
+					<port>8888</port>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

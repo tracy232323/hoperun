@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hoperun.mapper.UserMapper">
+	<insert id="save" parameterType="com.hoperun.pojo.User">
+		insert into uesr (uid,username,password,phone,e_mail)
+		values (#{uid},#{username},#{password},#{phone},#{e_mail});
+	</insert>
+
+	<select id="getById" parameterType="String" resultType="com.hoperun.pojo.User">
+		select * from uesr where uid = #{uid};
+	</select>
+
+	<select id="getUserList" resultType="com.hoperun.pojo.User">
+		select * from user;
+	</select>
+
+	<delete id="deleteById" parameterType="String">
+		DELETE FROM user WHERE uid = #{uid};
+	</delete>
+</mapper>
